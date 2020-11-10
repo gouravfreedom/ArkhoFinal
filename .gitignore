@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/DFS/.vs/DFS
+/DFS/DFS/DFS/obj
+/DFS/DFS/DFS.Android/obj
+/DFS/DFS/DFS.iOS/obj

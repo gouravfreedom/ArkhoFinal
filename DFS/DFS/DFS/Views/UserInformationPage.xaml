@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Name="UserInfoPage" NavigationPage.HasNavigationBar="false" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.UserInformationPage" xmlns:local="clr-namespace:DFS"
+             xmlns:controls="clr-namespace:DFS.Controls;assembly=DFS">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="entryTemplate">
+                <ViewCell>
+                    <StackLayout VerticalOptions="FillAndExpand" >
+                        <controls:CustomUnderlineEntry Text="{Binding MainSelectedData}" Placeholder="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="numericTemplate">
+                <ViewCell>
+                    <StackLayout VerticalOptions="FillAndExpand" >
+                        <Entry Text="{Binding MainSelectedData}" Keyboard="Numeric" Placeholder="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="buttonTemplate">
+                <ViewCell>
+                    
+                    <Button Command="{Binding Path=BindingContext.SaveCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}"  Text="{Binding MainSelectedData}" Margin="0,5" TextColor="{StaticResource GreenColor}"/>
+                    
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="pickerTemplate">
+                <ViewCell>
+                    
+                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+                        <Picker ItemsSource="{Binding SelectionData}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"  Title="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="datePickerTemplate">
+                <ViewCell>
+                    
+                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+                        <DatePicker Date="{Binding SelectedDate}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></DatePicker>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="labelTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            <Label  VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="labelButtonTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontSize="16"/>
+                            <Image Source="plus_green" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="minusButtonTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontSize="16"/>
+                            <Image Source="plus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        <Image Source="minus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.MinusCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="onlyMinusButtonTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            
+                            <Image Source="minus_green" VerticalOptions="End" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.MinusCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="headerTemplate">
+                <ViewCell>
+                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+                        <Label Text="{Binding HeaderName}" VerticalOptions="CenterAndExpand" FontSize="Large" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="editorTemplate">
+                <ViewCell>
+                    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
+                        <Editor Text="{Binding MainSelectedData}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="serviceTemplate">
+                <ViewCell>
+                    <StackLayout>
+                                    
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
+                            <Entry Text="{Binding MainSelectedData}" HorizontalOptions="FillAndExpand" Placeholder="Enter Services" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry HorizontalOptions="EndAndExpand" Text="{Binding SessionAmount}" Keyboard="Numeric" Placeholder="Price" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Image Source="green_cal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CalendarCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                        
+                        <Editor PlaceholderColor="{StaticResource UserText}" Placeholder="Enter Description" Text="{Binding SessionDesc}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Entry Text="{Binding SessionLocation}" HorizontalOptions="FillAndExpand" Placeholder="Enter Location" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry HorizontalOptions="EndAndExpand" Text="{Binding SessionTeam}" Keyboard="Telephone" Placeholder="Batch Size" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                        </StackLayout>
+                    
+                    </StackLayout>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+<!--            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}"  EntryTemplate="{StaticResource entryTemplate}" PickerTemplate"{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" />-->
+            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" OnlyMinusButtonTemplate="{StaticResource onlyMinusButtonTemplate}" MinusButtonTemplate="{StaticResource minusButtonTemplate}" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
+            <local:CustomGroupHeaderTemplate x:Key="customGroupTemplateSelector" HeaderTemplate="{StaticResource headerTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <RelativeLayout>
+        
+            <!-- Outer View -->
+            <StackLayout Spacing="0" x:Name="outerLayout" BackgroundColor="{StaticResource WhiteColor}" 
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,Factor=0,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            
+        
+                <StackLayout  VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" HorizontalOptions="FillAndExpand">
+                    
+                        <StackLayout Margin="0,20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label Text="PERSONAL INFORMATION" Margin="20" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                                <!-- Image View -->
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame CornerRadius="10" Padding="0" Margin="20,0">
+                                        <Image Source="{Binding UserIcon}" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
+                                    </Frame>
+                                    <Label Text="Upload Photo" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="White">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Handle_PictureTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                </StackLayout>
+
+                            </StackLayout>
+                            
+                            <local:CustomListView Margin="20,0" ItemsSource="{Binding StaticListData}" BackgroundColor="{StaticResource BackColor}" SeparatorVisibility="None" HasUnevenRows="true" SeparatorColor="Transparent" IsGroupingEnabled="true" x:Name="listView" ItemTemplate="{StaticResource personDataTemplateSelector}" GroupHeaderTemplate="{StaticResource customGroupTemplateSelector}" >
+            
+                            </local:CustomListView>
+                        
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                                <Button WidthRequest="120" Clicked="Handle_BackClicked" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="Cancel" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                            </StackLayout>                           
+                        </StackLayout>
+                    
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout
+                    IsVisible="{Binding IsServiceInProgress}"
+                    BackgroundColor="Black" Opacity="0.5"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+             </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsServiceInProgress}" Padding="12"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Height,Factor=0.5,Constant=0}"
+                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                    ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                RelativeLayout.HeightConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+
+               <ActivityIndicator IsRunning="true" Color ="{StaticResource GreenColor}"/>
+
+               <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+            </StackLayout>
+
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

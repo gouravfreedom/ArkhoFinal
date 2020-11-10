@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A017D20-1350-482B-B938-CF7FF1C58922}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DFS.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>DFS.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>Apple Development: silvaguillermo534@gmail.com (GX4PKU67XF)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: Guillermo Silva (74MK94642A)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>Updated March 2020</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Distribution: Guillermo Silva (74MK94642A)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>May_ADHOC_2020</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Camera_Implementation_IOS.cs" />
+    <Compile Include="Controls\CornerLayout_iOS.cs" />
+    <Compile Include="Controls\CustomListViewRenderer.cs" />
+    <Compile Include="CustomPickerRenderer.cs" />
+    <Compile Include="Implementations\CacheManager.cs" />
+    <Compile Include="Implementations\FacebookManager.cs" />
+    <Compile Include="Implementations\InstagramManager.cs" />
+    <Compile Include="ISignService.cs" />
+    <Compile Include="Utils\Camera.cs" />
+    <Compile Include="Controls\CustomEntry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2822%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2825%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2811%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2816%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2812%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %288%29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\640.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\1536.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\6401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\backimage.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\backimage.imageset\1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\backimage.imageset\2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\backimage.imageset\3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\facebook.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\facebook.imageset\1x-03.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\facebook.imageset\2x-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\facebook.imageset\3x-37.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\gray_cal.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\gray_cal.imageset\Sin título-2-10.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\instagram.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\instagram.imageset\1x-04.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\instagram.imageset\2x-21.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\instagram.imageset\3x-38.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\1x-07.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\Sin título-2-06.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\minus_green.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\minus_green.imageset\Minus1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\minus_green.imageset\Minus2x.png.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\minus_green.imageset\Minus3x.png.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\password.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\password.imageset\1x-02.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\password.imageset\2x-19.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\password.imageset\3x-36.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\1x-14.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\plus_green.imageset\Sin título-2-13.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\username.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\username.imageset\1x-01.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\username.imageset\2x-18.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\username.imageset\3x-35.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Xamarin.Facebook.LoginKit.iOS" Version="5.12.0" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\DFS\DFS.csproj">
+      <Project>{614F5BF9-D7F0-4660-B076-BEFE5BE3431C}</Project>
+      <Name>DFS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\about.png" />
+    <BundleResource Include="Resources\about%402x.png" />
+    <BundleResource Include="Resources\arkhologo.png" />
+    <BundleResource Include="Resources\blog.png" />
+    <BundleResource Include="Resources\blog%402x.png" />
+    <BundleResource Include="Resources\Camera.png" />
+    <BundleResource Include="Resources\celebrity.jpg" />
+    <BundleResource Include="Resources\channel9.png" />
+    <BundleResource Include="Resources\close.png" />
+    <BundleResource Include="Resources\close%403x.png" />
+    <BundleResource Include="Resources\database.png" />
+    <BundleResource Include="Resources\defaultIcon.png" />
+    <BundleResource Include="Resources\Delete.png" />
+    <BundleResource Include="Resources\facebook.png" />
+    <BundleResource Include="Resources\facebook%402x.png" />
+    <BundleResource Include="Resources\Favorites.png" />
+    <BundleResource Include="Resources\Favorites1.png" />
+    <BundleResource Include="Resources\googleplus.png" />
+    <BundleResource Include="Resources\googleplus%402x.png" />
+    <BundleResource Include="Resources\hm_full.jpg" />
+    <BundleResource Include="Resources\hm.png" />
+    <BundleResource Include="Resources\hm%402x.png" />
+    <BundleResource Include="Resources\home_icon.png" />
+    <BundleResource Include="Resources\ic_pause.png" />
+    <BundleResource Include="Resources\ic_pause%402x.png" />
+    <BundleResource Include="Resources\ic_play.png" />
+    <BundleResource Include="Resources\ic_play%402x.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_share%402x.png" />
+    <BundleResource Include="Resources\ic_stop.png" />
+    <BundleResource Include="Resources\ic_stop%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\InboxIcon.png" />
+    <BundleResource Include="Resources\instagram.png" />
+    <BundleResource Include="Resources\instagram%402x.png" />
+    <BundleResource Include="Resources\landscape.png" />
+    <BundleResource Include="Resources\LeftSwipIcon.png" />
+    <BundleResource Include="Resources\location.png" />
+    <BundleResource Include="Resources\locationPin.png" />
+    <BundleResource Include="Resources\loginlogo.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\marker01.png" />
+    <BundleResource Include="Resources\profile1.jpeg" />
+    <BundleResource Include="Resources\profile2.jpeg" />
+    <BundleResource Include="Resources\profile3.jpeg" />
+    <BundleResource Include="Resources\profile4.jpeg" />
+    <BundleResource Include="Resources\profile5.jpeg" />
+    <BundleResource Include="Resources\ratchet_full.jpg" />
+    <BundleResource Include="Resources\ratchet.png" />
+    <BundleResource Include="Resources\ratchet%402x.png" />
+    <BundleResource Include="Resources\refresh.png" />
+    <BundleResource Include="Resources\refresh%402x.png" />
+    <BundleResource Include="Resources\roger.jpeg" />
+    <BundleResource Include="Resources\scott.png" />
+    <BundleResource Include="Resources\scott159.png" />
+    <BundleResource Include="Resources\selected_check.png" />
+    <BundleResource Include="Resources\selected.png" />
+    <BundleResource Include="Resources\semi_selected.png" />
+    <BundleResource Include="Resources\slideout.png" />
+    <BundleResource Include="Resources\slideout%402x.png" />
+    <BundleResource Include="Resources\Star_Rating.png" />
+    <BundleResource Include="Resources\tdl_full.jpg" />
+    <BundleResource Include="Resources\tdl.png" />
+    <BundleResource Include="Resources\tdl%402x.png" />
+    <BundleResource Include="Resources\truck_copy.JPG" />
+    <BundleResource Include="Resources\truck_copy.png" />
+    <BundleResource Include="Resources\truck.png" />
+    <BundleResource Include="Resources\twitter.png" />
+    <BundleResource Include="Resources\twitter%402x.png" />
+    <BundleResource Include="Resources\twitternav.png" />
+    <BundleResource Include="Resources\twitternav%402x.png" />
+    <BundleResource Include="Resources\unselected_check.png" />
+    <BundleResource Include="Resources\unselected.png" />
+    <BundleResource Include="Resources\xaml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+</Project>

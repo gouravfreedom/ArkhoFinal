@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.SignUpCalenderPage"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar">
+    <ContentPage.Content>
+        
+        <AbsoluteLayout>
+        
+            <StackLayout
+                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Margin="0,20,0,0">
+                    <Image HeightRequest="50" WidthRequest="50" Source="green_cal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+                </StackLayout>
+                
+                <ScrollView Margin="0,40,0,0">
+                    <controls:Calendar 
+                        SelectedDate="{Binding Date}"
+                        SpecialDates="{Binding Attendances}"
+                        DateCommand="{Binding DateChosen}" 
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="StartAndExpand" 
+                        x:Name="calendar" />
+                </ScrollView>
+                
+                <Frame WidthRequest="100"                          
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       CornerRadius="10"
+                       Margin="0,10,0,0"
+                       Padding="0,5"
+                       IsVisible="{Binding IsSubmitVisible}"
+                       OutlineColor="{StaticResource GreenColor}"
+                       x:Name="TrainerFrame"
+                       BackgroundColor="{StaticResource GreenColor}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HideCalenderCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Done" TextColor="{StaticResource BlackColor}"/>
+                 </Frame>
+                
+                <!--<Frame WidthRequest="100"                          
+                       HorizontalOptions="Center"
+                       VerticalOptions="StartAndExpand"
+                       CornerRadius="10"
+                       Margin="0,10,0,0"
+                       Padding="0,5"
+                       IsVisible="{Binding IsSubmitVisible}"
+                       OutlineColor="{StaticResource GreenColor}"
+                       
+                       BackgroundColor="{StaticResource GreenColor}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ResetCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Reset" TextColor="{StaticResource BlackColor}"/>
+                 </Frame>-->
+                
+            </StackLayout>
+            
+            <StackLayout
+                IsVisible="{Binding IsModifyViewVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                Opacity="0.2" 
+                BackgroundColor="Black">
+            </StackLayout>
+            
+            <StackLayout
+                IsVisible="{Binding IsModifyViewVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout BackgroundColor="White" WidthRequest="200" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding DisplayDate}" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Start Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding StartTime}" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="End Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding EndTime}" HorizontalOptions="StartAndExpand"/>
+                    <Button Command="{Binding ModifyCommand}" Text="Modify" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                    <Button Command="{Binding DeleteEventCommand}" Text="Delete" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                    <Button Command="{Binding CancelEventCommand}" Text="Cancel" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout
+                x:Name="OpaqueView"
+                IsVisible="{Binding TimeSelectionVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                Opacity="0.2" 
+                BackgroundColor="Black">
+            </StackLayout>
+            
+            <StackLayout
+                x:Name="TimeView"
+                IsVisible="{Binding TimeSelectionVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                >
+                
+                
+                <StackLayout HeightRequest="350" Spacing="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                    
+                    <StackLayout MinimumHeightRequest="40" HeightRequest="40" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+                        <Label Text="{Binding TimeHeader}" FontAttributes="Bold" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    <ListView SelectedItem="{Binding RecentlySelectedItem}" BackgroundColor="White"  ItemsSource="{Binding ListViewData}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <ListView.ItemTemplate>
+                          <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding ListItemColor}">
+                                        <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black" Text="{Binding .}" />
+                                    </StackLayout>
+                                </ViewCell>
+                          </DataTemplate>
+                        </ListView.ItemTemplate>
+  
+                        
+                    </ListView>
+                    
+                    
+                </StackLayout>
+                
+            </StackLayout>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

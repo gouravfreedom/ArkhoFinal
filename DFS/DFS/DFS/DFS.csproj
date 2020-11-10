@@ -1,0 +1,118 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="modernhttpclient-updated" Version="3.4.3" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="XamForms.Enhanced.Calendar" Version="1.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Dependency\" />
+    <Folder Include="Models\" />
+    <Folder Include="Service\" />
+    <Folder Include="Utils\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\StackLayoutButton.xaml" />
+    <None Include="Views\Calender.xaml" />
+    <None Include="Views\CalenderPage.xaml" />
+    <None Include="Views\CoachListPage.xaml" />
+    <None Include="Views\ImagePopupPage.xaml" />
+    <None Include="Views\LoginPage.xaml" />
+    <None Include="Views\MenuPage.xaml" />
+    <None Include="Views\PaymentPage.xaml" />
+    <None Include="Views\ResetPasswordPage.xaml" />
+    <None Include="Views\ScheduleList.xaml" />
+    <None Include="Views\SelectionPage.xaml" />
+    <None Include="Views\SignUp.xaml" />
+    <None Include="Views\SignUpCalenderPage.xaml" />
+    <None Include="Views\StripeSelectionPage.xaml" />
+    <None Include="Views\StripeWebPage.xaml" />
+    <None Include="Views\TimeSelectionPopup.xaml" />
+    <None Include="Views\TraineeCalanderPage.xaml" />
+    <None Include="Views\TraineeProfilePage.xaml" />
+    <None Include="Views\TrainerProfilePage.xaml" />
+    <None Include="Views\UserInformationPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CalenderPage.xaml.cs">
+      <DependentUpon>CalenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CoachListPage.xaml.cs">
+      <DependentUpon>CoachListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SelectionPage.xaml.cs">
+      <DependentUpon>SelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ImagePopupPage.xaml.cs">
+      <DependentUpon>ImagePopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PaymentPage.xaml.cs">
+      <DependentUpon>PaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ResetPasswordPage.xaml.cs">
+      <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ScheduleList.xaml.cs">
+      <DependentUpon>ScheduleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StripeSelectionPage.xaml.cs">
+      <DependentUpon>StripeSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SignUpCalenderPage.xaml.cs">
+      <DependentUpon>SignUpCalenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TimeSelectionPopup.xaml.cs">
+      <DependentUpon>TimeSelectionPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StripeWebPage.xaml.cs">
+      <DependentUpon>StripeWebPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TraineeProfilePage.xaml.cs">
+      <DependentUpon>TraineeProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TraineeCalanderPage.xaml.cs">
+      <DependentUpon>TraineeCalanderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UserInformationPage.xaml.cs">
+      <DependentUpon>UserInformationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TrainerProfilePage.xaml.cs">
+      <DependentUpon>TrainerProfilePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

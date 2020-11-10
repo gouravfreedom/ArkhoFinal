@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>ARKHO</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.silva.trainme</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MinimumOSVersion</key>
+	<string>11.0</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Required Location. It will help us to locate nearby people.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Required Location. It will help us to locate nearby people.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Gallery access required to upload profile picture.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Gallery access required to upload profile picture.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Required Location. It will help us to locate nearby people.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb484296309068142</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>484296309068142</string>
+	<key>FacebookDisplayName</key>
+	<string>ARKHO</string>
+	<key>CFBundleName</key>
+	<string>ARKHO</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calender permission required to display booking details.</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
+	<key>CFBundleVersion</key>
+	<string>2.0</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
+</dict>
+</plist>

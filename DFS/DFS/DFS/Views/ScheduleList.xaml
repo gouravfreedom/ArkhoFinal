@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.ScheduleList">
+    <ContentPage.Content>
+        <RelativeLayout>
+        <!-- Outer View -->
+            <StackLayout Spacing="0" x:Name="outerLayout" 
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,Factor=0,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            
+                <StackLayout BackgroundColor="{StaticResource BackColor}">
+                    
+                    <ListView x:Name="ItemsListView" BackgroundColor="White" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10" BackgroundColor="White">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding trainerEmailId}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding addByEmailID}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding phoneNumber}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding day}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding month}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding year}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                </StackLayout>
+                                                
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding startTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="-" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding endTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                </StackLayout>
+                                                
+                                            </StackLayout>
+                                            
+                                            <StackLayout IsVisible="{Binding IsStarVisible}" HorizontalOptions="EndAndExpand" WidthRequest="40" VerticalOptions="FillAndExpand">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="Handle_Tapped"/>
+                                                </StackLayout.GestureRecognizers>
+                                                <Image Source="Star_Rating.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                            
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            
+            
+            <StackLayout
+                    x:Name="OpaqueView"
+                    BackgroundColor="Black" Opacity="0.5"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+             </StackLayout>
+
+            <StackLayout Padding="12"
+                         x:Name="IndicatorView"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                    ElementName=outerLayout,Property=Height,Factor=0.5,Constant=0}"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+
+               <ActivityIndicator IsRunning="true" Color ="{StaticResource GreenColor}"/>
+
+               <Label x:Name="LoadingText" HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+            </StackLayout>
+            
+            <StackLayout
+                    x:Name="RatingView"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0.3,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+                <ScrollView Margin="30,10" Padding="10" HeightRequest="220" BackgroundColor="White">
+                    <StackLayout>
+                        <Label HorizontalTextAlignment="Center">Please Rate Trainer. It will help others make better choices.</Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid  VerticalOptions="FillAndExpand" Margin="0,10,0,0">
+                              <Grid.RowDefinitions >
+                               
+                                <RowDefinition Height="60" />
+
+                              </Grid.RowDefinitions>
+                              <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                              </Grid.ColumnDefinitions>
+                                
+                                    <Image x:Name="FirstImage" Source="unselected.png" Grid.Column="0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FirstImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    
+                                    <Image x:Name="SecondImage" Source="unselected.png" Grid.Column="1">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SecondImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="ThirdImage" Source="unselected.png" Grid.Column="2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ThirdImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="FourthImage" Source="unselected.png" Grid.Column="3">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FourthImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="FifthImage" Source="unselected.png" Grid.Column="4">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FifthImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                            </Grid>
+                        </StackLayout>
+                        <Frame Padding="0" OutlineColor="Silver" HasShadow="false" CornerRadius="5">
+                            <Editor x:Name="CommentText" FontSize="14" HeightRequest="32" MinimumHeightRequest="32"></Editor>
+                        </Frame>
+                        <Button Text="Done" Clicked="Done_Clicked" BackgroundColor="{StaticResource GreenColor}" TextColor="Black"/>
+                    </StackLayout>
+                </ScrollView>
+                
+             </StackLayout>
+            
+        </RelativeLayout>
+
+    </ContentPage.Content>
+</ContentPage>

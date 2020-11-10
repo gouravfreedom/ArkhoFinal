@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.CoachListPage" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+    <ContentPage.Content>
+        
+        <RelativeLayout>
+        <!-- Outer View -->
+            <StackLayout Spacing="0" x:Name="outerLayout" 
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,Factor=0,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            
+                <StackLayout BackgroundColor="{StaticResource BackColor}">
+                    <Entry Text="{Binding SearchText}" BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
+                    
+                    <ListView x:Name="ItemsListView" BackgroundColor="White" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10" BackgroundColor="White">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame 
+                                                    CornerRadius="40"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    IsClippedToBounds="true"
+                                                    Margin="0"
+                                                    Padding="0"
+                                                    WidthRequest="80"
+                                                    MinimumWidthRequest="80"
+                                                    MinimumHeightRequest="80"
+                                                    HeightRequest="80">
+                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrL}"/>
+                                            </Frame>
+                                            
+                                            <!--<ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageUrL}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
+                                                <ffimageloading:CachedImage.Transformations>
+                                                    <fftransformations:CircleTransformation />
+                                                </ffimageloading:CachedImage.Transformations>
+                                            </ffimageloading:CachedImage>-->
+                                            
+                                            
+                                            
+                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label Text="{Binding SportsInterest}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="16" />
+                                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                                    <Image HeightRequest="20" WidthRequest="20" Source="{Binding FirstImageSource}"></Image>
+                                                    <Image HeightRequest="20" WidthRequest="20" Source="{Binding SecondImageSource}"></Image>
+                                                    <Image HeightRequest="20" WidthRequest="20" Source="{Binding ThirdImageSource}"></Image>
+                                                    <Image HeightRequest="20" WidthRequest="20" Source="{Binding FourthImageSource}"></Image>
+                                                    <Image HeightRequest="20" WidthRequest="20" Source="{Binding FifthImageSource}"></Image> 
+                                                </StackLayout>
+                                                
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            
+            
+            <StackLayout
+                    IsVisible="{Binding IsServiceInProgress}"
+                    BackgroundColor="Black" Opacity="0.5"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+             </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsServiceInProgress}" Padding="12"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Height,Factor=0.5,Constant=0}"
+                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                    ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                RelativeLayout.HeightConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+
+               <ActivityIndicator IsRunning="true" Color ="{StaticResource GreenColor}"/>
+
+               <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+            </StackLayout>
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
